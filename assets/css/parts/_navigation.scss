@@ -1,0 +1,21 @@
+#nav-section {
+  padding: .5em;
+  background: rgba(20, 2, 0, 0.8);
+  color: $white;
+  font-weight: 400;
+  position: fixed;
+  width: 100%;
+  top: 0;
+
+  a {
+    color: $white;
+    font-size: 1em;
+    padding: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+}

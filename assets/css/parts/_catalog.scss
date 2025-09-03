@@ -1,0 +1,35 @@
+#catalog {
+  background: url('../img/menu-bg.jpg') no-repeat;
+  background-size: cover;
+
+  .catalog {
+    &-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    &-item {
+      font-size: 1.2rem;
+      box-shadow: 0 10px 30px 0 rgba(182, 136, 52, 0.2);
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      gap: 1rem;
+
+      &_title {
+        font-weight: 800;
+      }
+
+      &_price {
+        font-weight: 800;
+        color: $gold;
+      }
+
+      &_description {
+        font-size: .8rem;
+        font-weight: 300;
+      }
+    }
+  }
+}

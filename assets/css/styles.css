@@ -1,2 +1,187 @@
-@import "main.css";
-@import "./parts/navigation.css";
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+
+.section {
+  padding: 5em 0;
+}
+
+.row-title {
+  color: #222222;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.row-title_header {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.row-title_description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+#nav-section {
+  padding: 0.5em;
+  background: rgba(20, 2, 0, 0.8);
+  color: #fff;
+  font-weight: 400;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+#nav-section a {
+  color: #fff;
+  font-size: 1em;
+  padding: 0;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+#nav-section a:hover {
+  color: #B78833;
+}
+
+#banner {
+  background: url("../img/header-bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+#banner .banner-row {
+  height: 880px;
+}
+#banner .banner-row p {
+  color: #fff;
+  font-weight: 700;
+}
+#banner .banner-text_top {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+#banner .banner-text_bottom {
+  font-size: 4.1rem;
+}
+#banner .banner-btn {
+  background: #fff;
+  border: 1px solid #fff;
+  padding: 0.5rem 2.5rem;
+  border-radius: 2.5rem;
+}
+#banner .banner-btn:hover {
+  background: transparent;
+  color: #fff;
+}
+
+#video .video-wrapper {
+  position: relative;
+}
+#video .video-wrapper:hover {
+  cursor: pointer;
+}
+#video .video-wrapper:hover:before {
+  background: rgba(0, 0, 0, 0.2);
+}
+#video .video-wrapper:hover:after {
+  transform: scale(1.5);
+}
+#video .video-wrapper:before, #video .video-wrapper:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+#video .video-wrapper:before {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+#video .video-wrapper:after {
+  background: url("../img/play-icon.png") no-repeat center center;
+  background-size: initial;
+}
+#video .video-image {
+  max-width: 100%;
+}
+#video .about {
+  font-size: 1rem;
+}
+#video .about-subtitle {
+  color: #B78833;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+#video .about-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  max-width: 80%;
+}
+#video .about-quote {
+  font-weight: 600;
+}
+#video .about-description {
+  font-weight: 400;
+}
+#catalog {
+  background: url("../img/menu-bg.jpg") no-repeat;
+  background-size: cover;
+}
+#catalog .catalog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+#catalog .catalog-item {
+  font-size: 1.2rem;
+  box-shadow: 0 10px 30px 0 rgba(182, 136, 52, 0.2);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  gap: 1rem;
+}
+#catalog .catalog-item_title {
+  font-weight: 800;
+}
+#catalog .catalog-item_price {
+  font-weight: 800;
+  color: #B78833;
+}
+#catalog .catalog-item_description {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+#gallery .gallery-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+#gallery .gallery-container_left {
+  display: grid;
+  gap: 2rem;
+  align-items: stretch;
+}
+#gallery .gallery-container_right {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  justify-content: stretch;
+}
+#gallery .gallery-container_right_bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  gap: 2rem;
+}
+#gallery .gallery-container img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=styles.css.map */

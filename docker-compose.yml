@@ -1,0 +1,8 @@
+services:
+  backend:
+    image: "php:8.4-apache"
+    restart: "always"
+    ports:
+      - "80:80" # local machine port : docker (apache) machine port
+    volumes:
+      - .:/var/www/html # . (current local directory) : ubuntu path for apache

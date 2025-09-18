@@ -1,8 +1,11 @@
+version: "3.9"
 services:
-  backend:
-    image: "php:8.4-apache"
-    restart: "always"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "80:80" # local machine port : docker (apache) machine port
+      - "8080:80"         
     volumes:
-      - .:/var/www/html # . (current local directory) : ubuntu path for apache
+      - .:/var/www/html   
+    restart: unless-stopped

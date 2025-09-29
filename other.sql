@@ -1,0 +1,23 @@
+ALTER TABLE pet_owners
+  ADD COLUMN email VARCHAR(120) NULL UNIQUE AFTER phone;
+
+ALTER TABLE clinics
+  MODIFY COLUMN name VARCHAR(160) NOT NULL;
+
+ALTER TABLE appointments
+  ADD COLUMN notes TEXT NULL;
+
+ALTER TABLE appointments
+  DROP COLUMN notes;
+
+CREATE TABLE test_sandbox (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS test_sandbox;
+
+ALTER TABLE appointments
+  MODIFY COLUMN status ENUM('scheduled','done','cancelled','no_show')
+  NOT NULL DEFAULT 'scheduled';

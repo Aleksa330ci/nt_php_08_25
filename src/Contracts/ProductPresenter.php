@@ -5,10 +5,6 @@ namespace App\Contracts;
 
 use App\Domain\Product;
 
-/**
- * Контракт представлення продукту (HTML/CLI/JSON…)
- * SRP: окремо від домену і збереження.
- */
 interface ProductPresenter
 {
     public function show(Product $product): string;

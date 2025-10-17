@@ -10,6 +10,6 @@ use App\ISP\Swallow;
 use App\ISP\Ostrich;
 
 $swallow = new Swallow();  
-$ostrich = new Ostrich();  
+$ostrich = new Ostrich();   
 
 

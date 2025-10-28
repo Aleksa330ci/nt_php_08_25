@@ -10,7 +10,6 @@ final class Router
         'GET'    => [], 'POST' => [], 'PUT' => [], 'PATCH' => [], 'DELETE' => [],
     ];
 
-    // реєстрація
     public function get(string $p, array $h): void { $this->add('GET', $p, $h); }
     public function post(string $p, array $h): void { $this->add('POST', $p, $h); }
     public function put(string $p, array $h): void { $this->add('PUT', $p, $h); }
@@ -19,7 +18,6 @@ final class Router
 
     private function add(string $method, string $pattern, array $handler): void
     {
-        // {param} → (?P<param>[^/]+)
         $regex = preg_replace('#\{([a-zA-Z_][a-zA-Z0-9_]*)\}#', '(?P<$1>[^/]+)', $pattern);
         $regex = '#^' . $regex . '$#';
         $this->routes[$method][] = ['pattern' => $pattern, 'regex' => $regex, 'handler' => $handler];
@@ -38,7 +36,6 @@ final class Router
                 }
                 [$controllerClass, $action] = $route['handler'];
 
-                // валідації: існування класу і наслідування Controller
                 if (!class_exists($controllerClass)) {
                     return Response::json(['error' => "Controller '$controllerClass' not found"], 404);
                 }
@@ -51,7 +48,6 @@ final class Router
                 }
 
                 $controller = $rc->newInstance();
-                // Викликаємо: (params..., Request $request)
                 return $controller->$action(...array_values($params), $request);
             }
         }

@@ -17,7 +17,6 @@ final class Request
         $uri    = $_SERVER['REQUEST_URI'] ?? '/';
         $path   = parse_url($uri, PHP_URL_PATH) ?: '/';
 
-        // Заголовки
         $headers = [];
         foreach ($_SERVER as $k => $v) {
             if (str_starts_with($k, 'HTTP_')) {

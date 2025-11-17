@@ -3,7 +3,6 @@
 use Controllers\AuthController;
 use Auth\Auth;
 
-// Головна — захищена
 $router->get('/', function () {
     if (!Auth::check()) {
         header('Location: /login');

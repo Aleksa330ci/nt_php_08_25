@@ -9,4 +9,4 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 \Dotenv\Dotenv::createUnsafeImmutable(BASE_DIR)->load();
 
 require BASE_DIR . '/routes/web.php';
-$router->dispatch(); // твій метод
+$router->dispatch(); 

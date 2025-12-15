@@ -1,6 +1,8 @@
 <?php
 namespace Services;
 
+use Services\InventoryService;
+
 final class CartService
 {
     private const KEY = 'cart';
@@ -65,5 +67,58 @@ final class CartService
     public function clear(): void
     {
         unset($_SESSION[self::KEY]);
+    }
+
+    public function summary(): array
+    {
+        $raw = $this->all();
+
+        $items = [];
+        $subtotal = 0.0;
+
+        foreach ($raw as $row) {
+            $items[] = [
+                'product_id' => (int)$row['product_id'],
+                'title'      => (string)$row['name'],   
+                'qty'        => (int)$row['qty'],
+                'price'      => (float)$row['price'],
+            ];
+            $subtotal += (float)$row['price'] * (int)$row['qty'];
+        }
+
+        $discount = 0.0;       
+        $total    = $subtotal - $discount;
+
+        return [
+            'items'    => $items,
+            'subtotal' => $subtotal,
+            'discount' => $discount,
+            'total'    => $total,
+        ];
+    }
+
+ 
+    public function isAvailable(?InventoryService $inventory = null): bool
+    {
+        $inventory ??= new InventoryService();
+        $ok = true;
+
+        foreach ($this->all() as $row) {
+            $reason = null;
+            $pid = (int)$row['product_id'];
+            $qty = (int)$row['qty'];
+
+            if (!$inventory->canPrepareProduct($pid, $qty, $reason)) {
+                $_SESSION['flash_errors'][] = $reason ?: "Продукт #{$pid} неможливо додати до замовлення.";
+                $ok = false;
+            }
+        }
+
+        return $ok;
+    }
+
+    public function reset(): void
+    {
+        $this->clear();
     }
 }
